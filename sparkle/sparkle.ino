@@ -46,13 +46,13 @@ void loop() {
     leds[nums[i]] = CHSV(hues[i], 255, values[i]);
 
     if(values[i] == 0) {
-      nums[i] = random8() % sparkles;
+      nums[i] = random8() % NUM_LEDS;
       hues[i] = random8();
       values[i] = 255;
     }
 
-    if(values[i] >= 1) {
-      values[i] -= 1;
+    if(values[i] >= 16) {
+      values[i] -= 16;
     } else {
       values[i] = 0;
     }
