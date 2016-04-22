@@ -56,28 +56,19 @@ void _I(){
 void setup() {
   //Serial.begin(9600);
   FastLED.addLeds<CHIPSET, DATA_PIN>(leds, NUM_LEDS);
-  _H();
-  _I();
-  for(int i = 0; i < sparkles; i++) {
-    hues[i] = random8();
-    values[i] = random8();
-  }
 }
 
 void loop() {
   for(int i = 0; i < sparkles; i++) {
+
+    _H();
+    _I();
+  
     leds[nums[i]] = CHSV(hues[i], 255, values[i]);
 
     if(values[i] == 0) {
-      nums[i] = random8() % NUM_LEDS;
       hues[i] = random8();
       values[i] = 255;
-    }
-
-    if(values[i] >= 16) {
-      values[i] -= 16;
-    } else {
-      values[i] = 0;
     }
 
     FastLED.show();
