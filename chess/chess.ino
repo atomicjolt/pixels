@@ -47,7 +47,7 @@ void loop() {
     leds[nums[i]] = CHSV(hues[i], sats[i], values[i]);
 
     if(values[i] == 0) {
-      nums[i] = random8();
+      nums[i] = i;
       hues[i] = random8();
       sats[i] = random8();
       values[i] = 255;
