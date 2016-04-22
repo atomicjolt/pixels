@@ -55,7 +55,7 @@ void ran(){
 }
 
 void B(){
-  for(int i = 41; i < 74; i++){
+  for(int i = 41; i < 47; i++){
     // uint8_t = Unsigned int 8 bit
     leds[i] = CHSV(hue++, 255, 255);
   }
@@ -68,6 +68,7 @@ void B(){
   leds[30] = CHSV(hue++, 255, 255);
   leds[38] = CHSV(hue++, 255, 255);
   FastLED.show();
+  delay(30);
 }
 
 // One dot moving along the screen
@@ -122,7 +123,8 @@ void chase(int block){
 }
 
 void loop() {
-  ran();
+   B();
+  //ran();
 //  dot();
 //  fade();
 //  dotFill();
