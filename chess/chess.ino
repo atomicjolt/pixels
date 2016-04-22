@@ -25,16 +25,16 @@
 
 CRGB leds[NUM_LEDS];
 
-static const int sparkles = 32;
-static uint8_t nums[sparkles];
-static uint8_t hues[sparkles];
-static uint8_t sats[sparkles];
-static uint8_t values[sparkles];
+static const int boardsquares = 64;
+static uint8_t nums[boardsquares];
+static uint8_t hues[boardsquares];
+static uint8_t sats[boardsquares];
+static uint8_t values[boardsquares];
 
 void setup() {
   //Serial.begin(9600);
   FastLED.addLeds<CHIPSET, DATA_PIN>(leds, NUM_LEDS);
-  for(int i = 0; i < sparkles; i = i + 2) {
+  for(int i = 0; i < boardsquares; i = i + 2) {
     nums[i] = random8();
     hues[i] = random8();
     sats[i] = random8();
@@ -43,7 +43,7 @@ void setup() {
 }
 
 void loop() {
-  for(int i = 0; i < sparkles; i = i + 2) {
+  for(int i = 0; i < boardsquares; i = i + 2) {
     leds[nums[i]] = CHSV(hues[i], sats[i], values[i]);
 
     if(values[i] == 0) {
