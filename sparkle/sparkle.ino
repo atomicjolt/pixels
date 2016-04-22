@@ -29,6 +29,7 @@ static uint8_t hue = 0;
 static const int sparkles = 10;
 static uint8_t nums[sparkles];
 static uint8_t hues[sparkles];
+static uint8_t sats[sparkles];
 static uint8_t values[sparkles];
 
 void setup() {
@@ -37,17 +38,19 @@ void setup() {
   for(int i = 0; i < sparkles; i++) {
     nums[i] = random8() % NUM_LEDS;
     hues[i] = random8();
+    sats[i] = random8();
     values[i] = random8();
   }
 }
 
 void loop() {
   for(int i = 0; i < sparkles; i++) {
-    leds[nums[i]] = CHSV(hues[i], 255, values[i]);
+    leds[nums[i]] = CHSV(hues[i], sats[i], values[i]);
 
     if(values[i] == 0) {
       nums[i] = random8() % NUM_LEDS;
       hues[i] = random8();
+      sats[i] = random8();
       values[i] = 255;
     }
 
