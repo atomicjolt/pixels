@@ -31,6 +31,17 @@ void setup() {
   FastLED.addLeds<CHIPSET, DATA_PIN>(leds, NUM_LEDS);
 }
 
+void stars(){
+  for(int i = 0; i < 100; i++) {
+    uint8_t light = random8(0, NUM_LEDS);
+    uint8_t dark = random8(0, NUM_LEDS);
+    leds[light] = CHSV(hue++, 255, 255);
+    FastLED.show();
+    leds[dark] = CRGB::Black;
+    delay(5);
+  }
+}
+
 void ran(){
   for(int i = 0; i < 100; i++) {
     uint8_t light = random8(0, NUM_LEDS);

@@ -1,0 +1,5 @@
+pixels.iml
+.idea
+
+# We still don't tolerate that garbage
+*.java
