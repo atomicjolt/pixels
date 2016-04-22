@@ -35,7 +35,7 @@ void setup() {
   //Serial.begin(9600);
   FastLED.addLeds<CHIPSET, DATA_PIN>(leds, NUM_LEDS);
   for(int i = 0; i < boardsquares; i = i + 2) {
-    nums[i] = random8();
+    nums[i] = i;
     hues[i] = random8();
     sats[i] = random8();
     values[i] = random8();
