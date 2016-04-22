@@ -31,6 +31,17 @@ void setup() {
   FastLED.addLeds<CHIPSET, DATA_PIN>(leds, NUM_LEDS);
 }
 
+void ran(){
+  for(int i = 0; i < 100; i++) {
+    uint8_t light = random8(0, NUM_LEDS);
+    uint8_t dark = random8(0, NUM_LEDS);
+    leds[light] = CHSV(hue++, 255, 255);
+    FastLED.show();
+    leds[dark] = CRGB::Black;
+    delay(5);
+  }
+}
+
 // One dot moving along the screen
 void dot(){
   for(int dot = 0; dot < NUM_LEDS; dot++) {
@@ -83,12 +94,13 @@ void chase(int block){
 }
 
 void loop() {
-  dot();
-  fade();
-  dotFill();
-  for(int i=3; i<10; i++){
-    chase(i);  
-  }
+  ran();
+//  dot();
+//  fade();
+//  dotFill();
+//  for(int i=3; i<10; i++){
+//    chase(i);  
+//  }
 }
 
 
